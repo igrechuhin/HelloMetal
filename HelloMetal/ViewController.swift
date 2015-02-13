@@ -24,6 +24,8 @@ class ViewController: UIViewController {
   var vertexBuffer: MTLBuffer!
 
   var pipelineState: MTLRenderPipelineState!
+
+  var commandQueue: MTLCommandQueue!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,6 +56,8 @@ class ViewController: UIViewController {
     if pipelineState == nil {
       println("Failed to create pipeline state, error = \(error)")
     }
+
+    commandQueue = device.newCommandQueue()
   }
 
   override func didReceiveMemoryWarning() {
