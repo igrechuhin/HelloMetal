@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
   var metalLayer: CAMetalLayer!
 
-  let vertexData = [
+  let vertexData: [Float] = [
      0.0,  1.0, 0.0,
     -1.0, -1.0, 0.0,
      1.0, -1.0, 0.0

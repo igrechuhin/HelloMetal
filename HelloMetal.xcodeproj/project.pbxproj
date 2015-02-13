@@ -13,6 +13,7 @@
 		0903B0C51A8DE8AD00097398 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0903B0C41A8DE8AD00097398 /* Images.xcassets */; };
 		0903B0C81A8DE8AD00097398 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0903B0C61A8DE8AD00097398 /* LaunchScreen.xib */; };
 		0903B0D41A8DE8AE00097398 /* HelloMetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0903B0D31A8DE8AE00097398 /* HelloMetalTests.swift */; };
+		0903B0DE1A8DF40F00097398 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0903B0DD1A8DF40F00097398 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		0903B0CD1A8DE8AE00097398 /* HelloMetalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloMetalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0903B0D21A8DE8AE00097398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0903B0D31A8DE8AE00097398 /* HelloMetalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloMetalTests.swift; sourceTree = "<group>"; };
+		0903B0DD1A8DF40F00097398 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				0903B0BD1A8DE8AC00097398 /* AppDelegate.swift */,
 				0903B0BF1A8DE8AC00097398 /* ViewController.swift */,
+				0903B0DD1A8DF40F00097398 /* Shaders.metal */,
 				0903B0C11A8DE8AD00097398 /* Main.storyboard */,
 				0903B0C41A8DE8AD00097398 /* Images.xcassets */,
 				0903B0C61A8DE8AD00097398 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0903B0DE1A8DF40F00097398 /* Shaders.metal in Sources */,
 				0903B0C01A8DE8AC00097398 /* ViewController.swift in Sources */,
 				0903B0BE1A8DE8AC00097398 /* AppDelegate.swift in Sources */,
 			);
