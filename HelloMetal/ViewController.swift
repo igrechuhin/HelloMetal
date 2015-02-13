@@ -22,6 +22,8 @@ class ViewController: UIViewController {
      1.0, -1.0, 0.0
   ]
   var vertexBuffer: MTLBuffer!
+
+  var pipelineState: MTLRenderPipelineState!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,6 +39,21 @@ class ViewController: UIViewController {
 
     let dataSize = vertexData.count * sizeofValue(vertexData[0])
     vertexBuffer = device.newBufferWithBytes(vertexData, length: dataSize, options: nil)
+
+    let defaultLibrary = device.newDefaultLibrary()
+    let vertexProgram = defaultLibrary!.newFunctionWithName("basic_vertex")
+    let fragmentProgram = defaultLibrary!.newFunctionWithName("basic_fragment")
+
+    let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
+    pipelineStateDescriptor.vertexFunction = vertexProgram
+    pipelineStateDescriptor.fragmentFunction = fragmentProgram
+    pipelineStateDescriptor.colorAttachments[0].pixelFormat = .BGRA8Unorm
+
+    var error: NSError?
+    pipelineState = device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor, error: &error)
+    if pipelineState == nil {
+      println("Failed to create pipeline state, error = \(error)")
+    }
   }
 
   override func didReceiveMemoryWarning() {
