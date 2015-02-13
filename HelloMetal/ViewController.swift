@@ -8,16 +8,25 @@
 
 import UIKit
 import Metal
-
+import QuartzCore
 
 class ViewController: UIViewController {
 
   var device: MTLDevice!
 
+  var metalLayer: CAMetalLayer!
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
     device = MTLCreateSystemDefaultDevice()
+
+    metalLayer = CAMetalLayer()
+    metalLayer.device = device
+    metalLayer.pixelFormat = .BGRA8Unorm
+    metalLayer.framebufferOnly = true
+    metalLayer.frame = view.layer.bounds
+    view.layer.addSublayer(metalLayer)
   }
 
   override func didReceiveMemoryWarning() {
