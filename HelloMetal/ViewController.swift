@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Metal
+
 
 class ViewController: UIViewController {
 
+  var device: MTLDevice!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    device = MTLCreateSystemDefaultDevice()
   }
 
   override func didReceiveMemoryWarning() {
