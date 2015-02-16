@@ -71,7 +71,11 @@ class ViewController: UIViewController {
   }
 
   func render() {
-
+    let renderPassDescriptor = MTLRenderPassDescriptor()
+    let colorAttachment = renderPassDescriptor.colorAttachments[0]
+    colorAttachment.texture = metalLayer.nextDrawable().texture
+    colorAttachment.loadAction = .Clear
+    colorAttachment.clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
   }
 
   func gameloop() {
