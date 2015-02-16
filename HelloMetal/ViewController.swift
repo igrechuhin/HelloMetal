@@ -71,13 +71,21 @@ class ViewController: UIViewController {
   }
 
   func render() {
+    let drawable = metalLayer.nextDrawable()
     let renderPassDescriptor = MTLRenderPassDescriptor()
     let colorAttachment = renderPassDescriptor.colorAttachments[0]
-    colorAttachment.texture = metalLayer.nextDrawable().texture
+    colorAttachment.texture = drawable.texture
     colorAttachment.loadAction = .Clear
     colorAttachment.clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
 
     let commandBuffer = commandQueue.commandBuffer()
+
+    if let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor) {
+      renderEncoder.setRenderPipelineState(pipelineState)
+      renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
+      renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
+      renderEncoder.endEncoding()
+    }
   }
 
   func gameloop() {
