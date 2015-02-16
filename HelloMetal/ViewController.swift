@@ -86,6 +86,9 @@ class ViewController: UIViewController {
       renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
       renderEncoder.endEncoding()
     }
+
+    commandBuffer.presentDrawable(drawable)
+    commandBuffer.commit()
   }
 
   func gameloop() {
