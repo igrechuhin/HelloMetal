@@ -26,6 +26,8 @@ class ViewController: UIViewController {
   var pipelineState: MTLRenderPipelineState!
 
   var commandQueue: MTLCommandQueue!
+
+  var timer: CADisplayLink!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -58,6 +60,9 @@ class ViewController: UIViewController {
     }
 
     commandQueue = device.newCommandQueue()
+
+    timer = CADisplayLink(target: self, selector: Selector("gameloop"))
+    timer.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
   }
 
   override func didReceiveMemoryWarning() {
@@ -65,6 +70,14 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  func render() {
 
+  }
+
+  func gameloop() {
+    autoreleasepool {
+      self.render()
+    }
+  }
 }
 
